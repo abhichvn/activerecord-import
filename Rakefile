@@ -14,6 +14,7 @@ begin
     gem.homepage = "http://github.com/zdennis/activerecord-import"
     gem.authors = ["Zach Dennis"]
     gem.files = FileList["VERSION", "Rakefile", "README*", "lib/**/*"]
+	gem.version = '0.3.1'
 
     bundler = Bundler.load
     bundler.dependencies_for(:default).each do |dependency|
@@ -63,7 +64,7 @@ rescue LoadError
   end
 end
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
