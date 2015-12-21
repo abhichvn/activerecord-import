@@ -14,7 +14,6 @@ begin
     gem.homepage = "http://github.com/zdennis/activerecord-import"
     gem.authors = ["Zach Dennis"]
     gem.files = FileList["VERSION", "Rakefile", "README*", "lib/**/*"]
-	gem.version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
     bundler = Bundler.load
     bundler.dependencies_for(:default).each do |dependency|
@@ -37,7 +36,7 @@ namespace :display do
 end
 task :default => ["display:notice"]
 
-ADAPTERS = %w(mysql mysql2 jdbcmysql postgresql sqlite3)
+ADAPTERS = %w(mysql mysql2 jdbcmysql postgresql sqlite3 seamless_database_pool mysqlspatial mysql2spatial spatialite postgis)
 ADAPTERS.each do |adapter|
   namespace :test do
     desc "Runs #{adapter} database tests."
